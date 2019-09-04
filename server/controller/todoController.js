@@ -1,4 +1,6 @@
-const todos = [{content: 'stuff', completed: true},{content: 'Help students', completed: false}];
+const todos = [
+    { content: 'Example', completed: true }
+];
 
 module.exports = {
     getTodo: (req, res) => {
@@ -15,11 +17,22 @@ module.exports = {
     updateTodo: (req, res) => {
         const { completed } = req.body
         const index = req.params.index;
+
+        if ( index < 0 || index >= todos.length ) {
+            res.status(401).send('Bad input. Index out of bounds');
+            return;
+        }
+
         todos[index].completed = completed;
         res.status(200).send(todos)
     },
     deleteTodo: (req, res) => {
         const index = req.params.index;
+
+        if ( index < 0 || index >= todos.length ) {
+            res.status(401).send('Bad input. Index out of bounds');
+            return;
+        }
 
         todos.splice(index, 1);
         res.status(200).send(todos)
