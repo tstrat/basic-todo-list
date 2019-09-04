@@ -1,4 +1,4 @@
-const todos = [{content: 'stuff', completed: true},{content: 'Help students', completed: false}];
+const todos = [{content: 'stuff', completed: true}];
 
 /*
     EDIT THESE FUNCTIONS TO ENABLE THE TODO APP TO WORK
