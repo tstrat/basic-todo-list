@@ -1,18 +1,13 @@
 const todos = [
-    { content: 'Example', completed: true }
+    // { content: 'Example', completed: true }
 ];
 
 module.exports = {
     getTodo: (req, res) => {
-        res.status(200).send(todos)
+
     },
     postTodo: (req, res) => {
-        const { content, completed } = req.body;
-        todos.push({
-            content: content || 'No Content',
-            completed: completed || false
-        });
-        res.status(200).send(todos)
+
     },
     updateTodo: (req, res) => {
         const { completed } = req.body
@@ -27,8 +22,7 @@ module.exports = {
         res.status(200).send(todos)
     },
     deleteTodo: (req, res) => {
-        const index = req.params.index;
-
+        const {index} = req.params;
         if ( index < 0 || index >= todos.length ) {
             res.status(400).send('Bad input. Index out of bounds');
             return;
