@@ -30,7 +30,7 @@ module.exports = {
         const index = req.params.index;
 
         if ( index < 0 || index >= todos.length ) {
-            res.status(401).send('Bad input. Index out of bounds');
+            res.status(400).send('Bad input. Index out of bounds');
             return;
         }
 
